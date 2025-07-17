@@ -1,5 +1,5 @@
 import { getTarefas } from './taskManager.js';
-import { atualizarTabelaComLista, fecharModal } from './uiManager.js';
+import { atualizarTabelaComLista } from './uiManager.js';
 
 export function aplicarFiltros() {
     let tarefasFiltradas = getTarefas().filter(tarefa => !tarefa.concluida);
@@ -34,4 +34,12 @@ function ordenarPorPrioridade(lista, ordem) {
     const pesos = { baixa: 1, media: 2, alta: 3 };
     const ordenada = [...lista].sort((a, b) => pesos[a.prioridade] - pesos[b.prioridade]);
     return ordem === 'alta' ? ordenada.reverse() : ordenada;
+}
+
+function fecharModal() {
+    const modalElement = document.getElementById('filtroModal');
+    if (modalElement) {
+        const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+        modal.hide();
+    }
 }

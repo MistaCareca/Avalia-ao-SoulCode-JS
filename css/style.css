@@ -1,53 +1,57 @@
-body {
-    background-color: #F7F7F7;
-    color: #252525;
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-.table thead {
-    background-color: #6C63FF;
-    color: white;
-}
-
-.btn-primary,
-.btn-outline-primary {
-    background-color: #6C63FF;
-    border-color: #6C63FF;
-    color: white;
-}
-
-.btn-primary:hover,
-.btn-outline-primary:hover {
-    background-color: #5952e6;
-    border-color: #5952e6;
-}
-
-.badge {
-    font-size: 0.9rem;
-    padding: 0.5em;
-}
-
-#filtroModal .modal-content {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 12px;
+@media (max-width: 576px) {
+    .input-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .input-group > * {
+        width: 100%;
+    }
+    .input-group .btn {
+        margin-left: 0 !important;
+    }
+    .d-flex.gap-2 {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .d-flex.gap-2 > * {
+        width: 100%;
+    }
+     .row.g-2 > div {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .d-flex.flex-wrap.gap-2 {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .d-flex.flex-wrap.gap-2 > * {
+        width: 100%;
+    }
 }
 
 .dark-mode {
-    background-color: #252525 !important;
-    color: #F7F7F7 !important;
+    background-color: #333;
+    color: #fff;
 }
-
-.dark-mode .table thead {
-    background-color: #6C63FF;
-    color: white;
+.dark-mode .table {
+    background-color: #444;
+    color: #fff;
 }
-
-.dark-mode input,
-.dark-mode select,
-.dark-mode .modal-content,
 .dark-mode .form-control,
 .dark-mode .form-select {
-    background-color: #333 !important;
-    color: #F7F7F7 !important;
+    background-color: #555;
+    color: #fff;
     border-color: #666;
+}
+.dark-mode .modal-content {
+    background-color: #444;
+    color: #fff;
+}
+.dark-mode .btn-close {
+    filter: invert(1);
 }

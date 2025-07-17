@@ -14,16 +14,24 @@
             <button class="btn btn-outline-dark" onclick="toggleTheme()">🌗 Tema</button>
         </div>
 
-        <div class="input-group mb-4">
-            <input type="text" class="form-control" placeholder="Nova tarefa" id="tarefaInput">
-            <select class="form-select" id="prioridadeSelect">
-                <option value="alta">Alta</option>
-                <option value="media">Média</option>
-                <option value="baixa">Baixa</option>
-            </select>
-            <button class="btn btn-primary" onclick="adicionarTarefa()">Adicionar</button>
-            <button class="btn btn-secondary ms-2" data-bs-toggle="modal" data-bs-target="#filtroModal">Filtros</button>
-            <button class="btn btn-info ms-2 text-white" onclick="toggleConcluidas()" id="toggleConcluidasBtn">Mostrar Concluídas</button>
+                <div class="row g-2 mb-4">
+            <div class="col-12 col-md-6 col-lg-7">
+                <input type="text" class="form-control" placeholder="Nova tarefa" id="tarefaInput">
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <select class="form-select" id="prioridadeSelect">
+                    <option value="alta">Alta</option>
+                    <option value="media">Média</option>
+                    <option value="baixa">Baixa</option>
+                </select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-3">
+                <div class="d-flex flex-wrap gap-2 justify-content-end">
+                    <button class="btn btn-primary" onclick="mostrarConfirmacaoAdicionar()">Adicionar</button>
+                    <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#filtroModal">Filtros</button>
+                    <button class="btn btn-info text-white" onclick="toggleConcluidas()" id="toggleConcluidasBtn">Mostrar Concluídas</button>
+                </div>
+            </div>
         </div>
 
         <div class="mb-3 d-flex gap-2">
@@ -48,8 +56,44 @@
 
     <div id="toastContainer" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;"></div>
 
+    <div class="modal fade" id="confirmarAdicionarModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Adição</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Deseja adicionar a tarefa "<span id="tarefaDescricao"></span>" com prioridade <span id="tarefaPrioridade"></span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-primary" onclick="confirmarAdicionar()">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmarConcluirModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Conclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Deseja marcar a tarefa "<span id="concluirTarefaDescricao"></span>" como concluída?</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-success" onclick="confirmarConcluir()">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="filtroModal" tabindex="-1">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Filtros</h5>
@@ -79,6 +123,7 @@
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/js/main.js"></script>
 </body>
