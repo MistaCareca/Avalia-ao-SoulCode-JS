@@ -1,0 +1,53 @@
+body {
+    background-color: #F7F7F7;
+    color: #252525;
+}
+
+.table thead {
+    background-color: #6C63FF;
+    color: white;
+}
+
+.btn-primary,
+.btn-outline-primary {
+    background-color: #6C63FF;
+    border-color: #6C63FF;
+    color: white;
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover {
+    background-color: #5952e6;
+    border-color: #5952e6;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5em;
+}
+
+#filtroModal .modal-content {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.dark-mode {
+    background-color: #252525 !important;
+    color: #F7F7F7 !important;
+}
+
+.dark-mode .table thead {
+    background-color: #6C63FF;
+    color: white;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode .modal-content,
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background-color: #333 !important;
+    color: #F7F7F7 !important;
+    border-color: #666;
+}
